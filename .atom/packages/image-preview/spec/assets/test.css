@@ -1,0 +1,13 @@
+body {
+  background: url(./sample.jpg);
+  background: url(./sample);
+  background: url("./sample.jpg");
+  background: url("./sample.gif");
+  background: url("./sample.svg");
+  background: url("/assets/sample.jpg");
+  background: url("https://placehold.jp/150x150.png");
+  background: url("https://placehold/150x150.png");
+  background: url("//placehold.jp/150x150.png");
+  background: url("//placehold/150x150.png");
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAK0lEQVQ4T2P8z8Dwn4GKgHHUQIpDczQMKQ5ChtEwHA1DMkJgNNmQEWhoWgBMAiftPRtHngAAAABJRU5ErkJggg==)
+}

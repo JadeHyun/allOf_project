@@ -1,0 +1,167 @@
+// The ui-variables file is provided by base themes provided by Atom.
+//
+// See https://github.com/atom/atom-dark-ui/blob/master/styles/ui-variables.less
+// for a full listing of what's available.
+@import "ui-variables";
+
+.image-preview-overlay {
+  z-index: 0 !important;
+}
+
+.image-preview {
+  background-color: @overlay-background-color;
+  border: 1px solid @overlay-border-color;
+  border-radius: 6px;
+  padding: 8px 12px 12px;
+  position: relative;
+  top: 5px;
+  width: 300px;
+
+  .actions {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .colors {
+    .btn-color {
+      background-size: 10px 10px;
+      background-position: 0 0, 5px 5px;
+      border: 1px solid #fff;
+      border-radius: 22px;
+      height: 20px;
+      width: 20px;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.2);
+
+      & + .btn-color {
+        margin-left: 5px;
+      }
+
+      &:hover {
+        opacity: .8;
+      }
+    }
+
+    .btn-white {
+      background-color: #e3e3e3;
+      background-image: linear-gradient(45deg, #ffffff 25%, transparent 25%, transparent 75%, #ffffff 75%, #ffffff), linear-gradient(45deg, #ffffff 25%, transparent 25%, transparent 75%, #ffffff 75%, #ffffff);
+    }
+
+    .btn-black {
+      background-color: #2b2b2b;
+      background-image: linear-gradient(45deg, #000000 25%, transparent 25%, transparent 75%, #000000 75%, #000000), linear-gradient(45deg, #000000 25%, transparent 25%, transparent 75%, #000000 75%, #000000);
+    }
+
+    .btn-transparent {
+      background: @overlay-background-color;
+    }
+  }
+
+  .pagination {
+    align-items: center;
+    display: flex;
+  }
+
+  .pagination-text {
+    margin: auto 4px;
+  }
+
+  .image-container {
+    align-items: center;
+    background-size: 10px 10px;
+    background-position: 0 0, 5px 5px;
+    display: flex;
+    margin-top: 8px;
+    min-height: 40px;
+    position: relative;
+
+    &[data-background="white"] {
+      background-color: #e3e3e3;
+      background-image: linear-gradient(45deg, #ffffff 25%, transparent 25%, transparent 75%, #ffffff 75%, #ffffff), linear-gradient(45deg, #ffffff 25%, transparent 25%, transparent 75%, #ffffff 75%, #ffffff);
+    }
+
+    &[data-background="black"] {
+      background-color: #2b2b2b;
+      background-image: linear-gradient(45deg, #000000 25%, transparent 25%, transparent 75%, #000000 75%, #000000), linear-gradient(45deg, #000000 25%, transparent 25%, transparent 75%, #000000 75%, #000000);
+    }
+
+    &[data-background="transparent"] {
+      background-color: transparent;
+    }
+
+    img {
+      display: none;
+      margin: auto;
+      max-width: 100%;
+
+      &.is-active {
+        display: block;
+      }
+    }
+  }
+
+  .image-info {
+    margin-top: 10px;
+  }
+
+  .image-path {
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+    word-break: break-all;
+  }
+
+  .image-size {
+    margin-top: 5px;
+  }
+
+  .spinner {
+    animation: loading 1.4s infinite linear;
+    background: linear-gradient(to right, @text-color 10%, rgba(255, 255, 255, 0) 42%);
+    border-radius: 50%;
+    bottom: 0;
+    height: 30px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30px;
+
+    &:before {
+      background: @text-color;
+      border-radius: 100% 0 0 0;
+      content: '';
+      height: 50%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 50%;
+    }
+
+    &:after {
+      background: @overlay-background-color;
+      border-radius: 50%;
+      bottom: 0;
+      content: '';
+      height: 80%;
+      left: 0;
+      margin: auto;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 80%;
+    }
+  }
+
+  @keyframes loading {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

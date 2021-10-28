@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="./sample.jpg">
+    <meta name="msapplication-square70x70logo" content="sample.jpg"/>
+    <style>
+      body {
+        background: url('./sample.jpg');
+        background: url("./sample.jpg");
+        background: url(./sample.jpg);
+      }
+    </style>
+  </head>
+  <body>
+    <div style="background: url('./sample.jpg');"></div>
+    <img src="sample.jpg" srcset="sample.jpg 1x, sample.png 2x,sample.gif 3x">
+    <img src="sample.jpg">
+    <picture>
+      <source srcset="./sample.jpg" media="(min-width: 980px)" />
+      <img src="./sample.png"/>
+    </picture>
+    <img src="https://placehold.jp/150x150.png">
+    <img src="https://placehold/150x150.png">
+    <img src="//placehold.jp/150x150.png">
+    <img src="//placehold/150x150.png">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAK0lEQVQ4T2P8z8Dwn4GKgHHUQIpDczQMKQ5ChtEwHA1DMkJgNNmQEWhoWgBMAiftPRtHngAAAABJRU5ErkJggg==">
+  </body>
+</html>
