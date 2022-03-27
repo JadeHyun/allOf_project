@@ -29,10 +29,55 @@
             <textarea name="" id="txt_area"  class="text"cols="30" rows="10"></textarea>
             <button type="button" class="comment_btn">댓글 입력</button>
             <ul class="comment_list">
-                <li class="list">list up check box</li>
+                <!-- <li class="list">list up check box</li> -->
             </ul>
             <button type="button" id="comment_more">더 보기</button>
         </section>
     </section>
+
+    <script>
+        const comment = document.querySelector('.text');
+        const commentBtn = document.querySelector('.comment_btn');
+        const commentList = document.querySelector('.comment_list');
+
+        const onAdd = ()=>{
+            const text = comment.value;
+            if(comment.value === ''){
+                comment.focus();
+                return;
+            }
+
+            const list = document.createElement('li');
+            list.setAttribute('class','list');
+
+            const listText = document.createElement('span');
+            listText.setAttribute('class','listText');
+            listText.innerHTML = text;
+
+            const listDel = document.createElement('button');
+            listDel.setAttribute('class', 'listDel');
+            listDel.innerHTML = '<i class="ttt"></i>';
+            listDel.addEventListener('click', ()=>{
+                commentList.removeChild(list);
+            });
+
+            list.appendChild(listText);
+            list.appendChild(listDel);
+            commentList.appendChild(list);
+            comment.value = '';
+            comment.focus();
+        };
+
+        comment.addEventListener('keypress', (event)=>{
+            if(event.key === 'Enter'){
+                onAdd();
+            }
+            return;
+        });
+
+        commentBtn.addEventListener('click',()=>{
+            onAdd();
+        });
+    </script>
 </body>
 </html>
