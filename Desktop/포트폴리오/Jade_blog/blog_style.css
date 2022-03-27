@@ -1,0 +1,76 @@
+/* 상단 : 공통된 디자인 /  하단 : 디자인 요소 작업시작 */
+.main_container {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.main_container h1 {
+  font-size: 30px;
+}
+
+.item_container {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item_container::after {
+  content: "";
+  background-color: black;
+  width: 75%;
+  height: 1px;
+  font-size: 0px;
+  margin-top: 50px;
+}
+
+.contents_box {
+  width: 68%;
+  height: 400px;
+  overflow: hidden;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+}
+
+.menu {
+  display: inline-block;
+}
+
+.menu a {
+  text-decoration: none;
+}
+
+.text {
+  margin-top: 20px;
+  width: 63%;
+  height: 50px;
+  padding: 0.7%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.comment_btn {
+  width: 5%;
+  height: 73.25px;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.comment_list {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.list {
+  width: 70%;
+  height: 300px;
+  border: 1px solid black;
+}
+
+#comment_more {
+  margin-top: 30px;
+}
