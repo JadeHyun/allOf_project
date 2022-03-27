@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>hello {{userName}}</h1>
+        <input type="text" v-model="userName">
+        <p v-if="userName.length > 9 ">user name length too long!!!</p>
+        <button v-on:click="addItem">addItem</button>
+        <button v-on:click="popItem">popItem</button>
+
+        <ul>
+            <li v-for="todo in todos">
+                {{todo}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                userName:"scalper",
+                frameWorks: ['react','vue','angular'],
+                todos: []
+            },
+            methods:{
+                addItem(){
+                    this.frameWorks.push(this.userName);
+                },
+                popItem(){
+                    this.frameworks.pop()
+                }
+            }
+        });
+    </script>
+</body>
+</html>
