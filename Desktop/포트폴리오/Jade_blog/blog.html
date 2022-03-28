@@ -7,19 +7,36 @@
     <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./blog_style.css">
     <title>나의 첫 blog</title>
+    <style>
+        #contents_box {
+  width: 68%;
+  height: 400px;
+  overflow: hidden;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+
+  /* 함수를 위한 css  */
+  cursor: pointer;
+}
+
+#contents_box:hover {
+  text-decoration: underline;
+}
+    </style>
 </head>
 <body>
     <section class="main_container">
         <h1>Jade 의 블로그 입니다.</h1>
         <section class="item_container">
-            <h2 class="">게시글 목록</h2>
-            <ul class="contents_box">
+            <h2 id="contents_box" onclick="openContent()">게시글 목록</h2>
+            <ul class="">
                 <li id="one">게시글 Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum quasi animi perspiciatis labore earum quaerat pariatur voluptate minus veniam facere ut commodi adipisci id odit, quo, corrupti eum! Facere, iusto.</li>
                 <li id="two">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum quo consequuntur architecto dicta deserunt, quis, delectus, accusamus laboriosam quas tenetur laudantium voluptatem quia id neque voluptate officiis obcaecati ad! Sequi.</li>
             </ul>
             <nav class="menu">
-                <a href="#one">1</a>
-                <a href="#two">2</a>
+                <button onclick="openOne()" id="oneBtn">1</button>
+                <a href="#two" onclick="openTwo" id="oneBtn">2</a>
             </nav>
         </section>
 
@@ -29,12 +46,35 @@
             <textarea name="" id="txt_area"  class="text"cols="30" rows="10"></textarea>
             <button type="button" class="comment_btn">댓글 입력</button>
             <ul class="comment_list">
-                <!-- <li class="list">list up check box</li> -->
             </ul>
             <button type="button" id="comment_more">더 보기</button>
         </section>
     </section>
 
+    <script>
+        const items = document.getElementById('contents_box');
+        const itemOne = document.getElementById('one');
+        const itemTwo = document.getElementById('two');
+
+        function openContent(){
+            console.log('잘 되나?');
+            if(document.getElementById('content_box').style.display ==='block'){
+                document.getElementById('content_box').style.display === 'none';
+                document.getElementById('content_box').textContent = '보이기';
+            }else{
+                document.getElementById('content_box').style.display  ==='block';
+                document.getElementById('content_box').textContent = '숨기기'
+            }
+
+        }
+
+
+        
+
+        
+    </script>
+
+    <!-- 해당 자바스크립트는 댓글을 추가하고 빼는 기능을 구현해봤습니다.댓글 입력 버튼으로 추가 하고 추가된 컨텐츠는 버튼으로 취소까지 가능하게 구현해 보았습니다. 그리고 컨텐츠를 추가하였을때 리셋되는 기능까지 구현해 보았습니다. -->
     <script>
         const comment = document.querySelector('.text');
         const commentBtn = document.querySelector('.comment_btn');
@@ -79,5 +119,6 @@
             onAdd();
         });
     </script>
+
 </body>
 </html>
