@@ -2,7 +2,7 @@
 // DOM
 const playground = document.querySelector(".playground > ul");
 const gameText = document.querySelector(".game-text");
-const scoreDisplay = document.querySelector(".score")
+const scoreDisplay = document.querySelector(".scroe")
 const restartButton = document.querySelector(".game-text > button")
 
 
@@ -98,7 +98,6 @@ function renderBlocks(moveType =""){
     movingBlocks.forEach(moving => {
         moving.classList.remove(type, 'moving');
     })
-    
     // 현재 BLOCKS 의 type 은 잘 찍히나, direction 이 안찍힘 => 이 말은 새로운 블록이 생성되지 않음. 
     //  현재 이 전 코드는 some() 이 아닌 forEach 문으로 했을 때 정상적으로 새 블록이 나온것을 확인 할 수 있음. 
     //      따라서 일단은 BLOCKS 의 some 을 일단 1. forEach 문으로 변경 2. some() 함수를 사용할 때 왜 direction 이 undefind 가 나오는지 알아볼것. 
