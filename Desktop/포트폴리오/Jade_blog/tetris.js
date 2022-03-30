@@ -60,7 +60,7 @@ const BLOCKS = {
 };
 
 const movingItem = {
-    type: 'tree',
+    type:'bar',
     direction: 0,
     top: 0,
     left: 3,
@@ -106,7 +106,7 @@ function renderBlocks(moveType =""){
     // 현재 BLOCKS 의 type 은 잘 찍히나, direction 이 안찍힘 => 이 말은 새로운 블록이 생성되지 않음. 
     //  현재 이 전 코드는 some() 이 아닌 forEach 문으로 했을 때 정상적으로 새 블록이 나온것을 확인 할 수 있음. 
     //      따라서 일단은 BLOCKS 의 some 을 일단 1. forEach 문으로 변경 2. some() 함수를 사용할 때 왜 direction 이 undefind 가 나오는지 알아볼것. 
-    BLOCKS [type] [direction].some(block => {
+    BLOCKS [type][direction].some(block => {
         const x = block[0] + left;
         const y = block[1] + top;
 
@@ -146,17 +146,18 @@ function renderBlocks(moveType =""){
             moving.classList.remove('moving');
             moving.classList.add('seized');
         })
-        generateNewBlock()
-    }
+        renderBlocks()
+        console.log(generateNewBlock)
+    };
 
 
-    function generateNewBlock() {
-        clearInterval(downInterval); // interval 시간을 초기화 해주는 코드
+
+    function generateNewBlock () {    
+
+        clearInterval(downInterval); 
         downInterval = setInterval(() => {
             moveBlock('top',1)
-        }, duration)
-    // 위 코드는 시간이 지날수록 블록이 내려 올 수 있도록 하는 코드이다. 
-    
+        }, duration);
 
         const blockArray = Object.entries(BLOCKS);
         const randomIndex = Math.floor(Math.random() * blockArray.length);
@@ -181,9 +182,8 @@ function renderBlocks(moveType =""){
             return false;
         }   
         return true;
-            // checkEmpty 라는 함수를 만들었다. 
-        // 한번더 체크하는 이유는 : 빈 여백을 채크해서 밖으로 벗어나지 않도록 하기 위함. 블럭이 최하단으로 떨어졌을 때 또 다른 블럭이 생성되고  블럭이 그 위에 떨어졌을 때 그 밑에 블럭이 있는지 없는지를 또 체크해야 한다. 그래서 한번 더 체크 해야한다. 
-
+        // checkEmpty 라는 함수를 만들었다. 
+        // 한번더 체크하는 이유는 : 빈 여백을 채크해서 밖으로 벗어나지 않도록 하기 위함. 블럭이 최하단으로 떨어졌을 때 또 다른 블럭이 생성되고  블럭이 그 위에 떨어졌을 때 그 밑에 블럭이 있는지 없는지를 또 체크해야 한다.
     }
 
 }
@@ -200,6 +200,13 @@ function renderBlocks(moveType =""){
         renderBlocks();
     }
 
+    function dropBlock(){
+        clearInterval(downInterval);
+        downInterval = setInterval(() => {
+            moveBlock('top',1)
+        },10)
+    }
+
     //event handling
     document.addEventListener('keydown', e =>{
         switch(e.keyCode){
@@ -214,6 +221,9 @@ function renderBlocks(moveType =""){
                 break;
             case 38:
                 changeDireaction();
+                break;
+            case 32:
+                dropBlock();
                 break;
         default:
             break;
