@@ -60,7 +60,7 @@ const BLOCKS = {
 };
 
 const movingItem = {
-    type:'bar',
+    type:'tree',
     direction: 0,
     top: 0,
     left: 3,
@@ -146,8 +146,7 @@ function renderBlocks(moveType =""){
             moving.classList.remove('moving');
             moving.classList.add('seized');
         })
-        renderBlocks()
-        console.log(generateNewBlock)
+        generateNewBlock()
     };
 
 
