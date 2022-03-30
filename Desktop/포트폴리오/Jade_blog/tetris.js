@@ -1,17 +1,12 @@
-// 테트리스 만들기
-// playground 태그 안 ul 태그 안에 20 줄의 li 가 들어갈 것이고,
-// 20 개의 li 안에 ul태그에 10 개의 li 가 들어갈 것이다. 
-// ( 세로 20 칸 가로 10 칸 의 테이블이 구성 될 예정. )
 
 // DOM
 const playground = document.querySelector(".playground > ul");
+const gameText = document.querySelector(".game-text");
+const scoreDisplay = document.querySelector(".score")
 
 // Setting 
 const GAME_ROWS = 20;
 const GAME_COLS = 10; 
-
-
-
 
 // variables
 let socre = 0;
@@ -60,10 +55,10 @@ const BLOCKS = {
 };
 
 const movingItem = {
-    type:'tree',
+    type: "tree" ,
     direction: 0,
     top: 0,
-    left: 3,
+    left: 3
 };
 
 
@@ -82,8 +77,6 @@ function init(){
     renderBlocks();
 }
 
-
-
 function prependNewLine(){
     const li = document.createElement('li'); // li 라는 변수에  li 태그를 만듬.
     const ul = document.createElement('ul'); // ul 이라는 변수에 ul 태그를 만듬.
@@ -95,6 +88,7 @@ function prependNewLine(){
     li.prepend(ul) // 변수명 li(세로 20칸) > ul > matrx(li 가로 10칸)
     playground.prepend(li)
 }
+
 function renderBlocks(moveType =""){
     const { type, direction, top, left } = tempMovingItem; 
     const movingBlocks = document.querySelectorAll(".moving");
@@ -123,8 +117,12 @@ function renderBlocks(moveType =""){
             target.classList.add(type, 'moving')
         } else {
             tempMovingItem = { ...movingItem }
+            if(moveType === 'retry'){
+                clearInterval(downInterval);
+                showGameoverText()
+            }
             setTimeout(() => {
-                renderBlocks();
+                renderBlocks('retry');
                 if(moveType === 'top') {
                     seizeBlock();
                 }
@@ -146,12 +144,31 @@ function renderBlocks(moveType =""){
             moving.classList.remove('moving');
             moving.classList.add('seized');
         })
-        generateNewBlock()
+        checkMatch()
     };
 
+    function checkMatch(){
+        const childNodes = playground.childNodes; 
+        childNodes.forEach(child =>{
+            let matched = true;
+            child.children[0].childNodes.forEach(li=>{
+                if(!li.classList.contains('seized')){
+                    matched = false ;
+                }
+            })
+            if(matched){
+                child.remove();
+                prependNewLine()
+            }
+    
+        })
+
+        generateNewBlock()
+    }
 
 
-    function generateNewBlock () {    
+
+    function generateNewBlock() {    
 
         clearInterval(downInterval); 
         downInterval = setInterval(() => {
@@ -160,11 +177,11 @@ function renderBlocks(moveType =""){
 
         const blockArray = Object.entries(BLOCKS);
         const randomIndex = Math.floor(Math.random() * blockArray.length);
-
     // 버그 원인 발견. movingItem.type 지정이 안되는듯. 빈칸으로 두니 새로운게 생성이 안됨.
     // 해결 : movingItem.type 을 빈칸으로 줫었는데 그렇게 되면 BLOCKS 함수에서 direction 이 속성을 못찾는 이슈가 있었음. 
     // 처음 접했을 때 랜덤함수 이상인줄 알고 찾아봤으나 이상없음. movingItem 의 type 을 지정안해주니 다음 블록을 호출을 못한다는것을 찾음.
     // movingItem 의 타입을 blockArray 함수의 배열의 반복문(Object.entries) 값으로 randomIndex 를 주고, 배열의 0 번째인 블록의 타입을 랜덤으로 불러옴.
+
         movingItem.type = blockArray[randomIndex][0];
         movingItem.top = 0;
         movingItem.left = 3;
@@ -205,6 +222,14 @@ function renderBlocks(moveType =""){
             moveBlock('top',1)
         },10)
     }
+
+    function showGameoverText(){
+            gameText.style.display = 'flex'
+    }
+    // 현재 발생한 문제 : DOM gameText 의 display 가 none 에서 flex 로 변경이 되야 하는데 안됨. 
+    // 
+
+
 
     //event handling
     document.addEventListener('keydown', e =>{
