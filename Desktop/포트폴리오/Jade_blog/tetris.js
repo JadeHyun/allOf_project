@@ -3,13 +3,15 @@
 const playground = document.querySelector(".playground > ul");
 const gameText = document.querySelector(".game-text");
 const scoreDisplay = document.querySelector(".score")
+const restartButton = document.querySelector(".game-text > button")
+
 
 // Setting 
 const GAME_ROWS = 20;
 const GAME_COLS = 10; 
 
 // variables
-let socre = 0;
+let score = 0;
 let duration = 500;
 let downInterval;
 let tempMovingItem;
@@ -159,22 +161,21 @@ function renderBlocks(moveType =""){
             if(matched){
                 child.remove();
                 prependNewLine()
+                score++;
+                scoreDisplay.innerText = score ;
             }
-    
         })
-
         generateNewBlock()
     }
 
 
 
     function generateNewBlock() {    
-
         clearInterval(downInterval); 
         downInterval = setInterval(() => {
             moveBlock('top',1)
         }, duration);
-
+    // clearInterval => 
         const blockArray = Object.entries(BLOCKS);
         const randomIndex = Math.floor(Math.random() * blockArray.length);
     // 버그 원인 발견. movingItem.type 지정이 안되는듯. 빈칸으로 두니 새로운게 생성이 안됨.
@@ -226,9 +227,6 @@ function renderBlocks(moveType =""){
     function showGameoverText(){
             gameText.style.display = 'flex'
     }
-    // 현재 발생한 문제 : DOM gameText 의 display 가 none 에서 flex 로 변경이 되야 하는데 안됨. 
-    // 
-
 
 
     //event handling
@@ -254,5 +252,9 @@ function renderBlocks(moveType =""){
         }
     });
 
-
+restartButton.addEventListener("click",()=>{
+    playground.innerHTML = "";
+    gameText.style.display = 'none'
+    init()
+})
      // https://youtu.be/1lNy2mhvLFk?t=1960
