@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chatting app</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="user_container">
+            대화명 : <input type="text" id="nickname">
+        </div>
+        <div class="display_container">
+            <ul class="chatting_list"></ul>
+        </div>
+        <div class="input_container">
+            <input type="text" class="chatting_input">
+            <button class="send_button">전송</button>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/chat.js"></script>
+</body>
+</html>
