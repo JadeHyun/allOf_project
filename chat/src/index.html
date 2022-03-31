@@ -4,19 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="chattingStyle.css">
     <title>chatting app</title>
 </head>
 <body>
     <div class="wrapper">
         <div class="user_container">
-            대화명 : <input type="text" id="nickname">
+            <label for="nickname">대화명</label>
+            <input type="text" id="nickname">
         </div>
         <div class="display_container">
-            <ul class="chatting_list"></ul>
+            <ul class="chatting_list">
+                
+            </ul>
         </div>
         <div class="input_container">
-            <input type="text" class="chatting_input">
-            <button class="send_button">전송</button>
+            <span>
+                <input type="text" class="chatting_input">
+                <button class="send_button">전송</button>
+            </span>
         </div>
     </div>
     <script src="/socket.io/socket.io.js"></script>
