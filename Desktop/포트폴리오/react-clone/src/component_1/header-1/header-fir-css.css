@@ -1,0 +1,13 @@
+.header_top {
+  background-color: black;
+  text-align: center;
+}
+
+.header {
+  padding: 10px 0;
+}
+
+.header_txt {
+  color: white;
+  font-size: 10px;
+}
