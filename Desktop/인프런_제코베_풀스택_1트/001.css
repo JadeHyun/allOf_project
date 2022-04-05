@@ -1,0 +1,36 @@
+.page_header {
+  display: block;
+  padding: 1em;
+  background-color: lightgray;
+}
+
+.content_container {
+  font-size: 0;
+}
+
+.content_section {
+  padding: 1em;
+  display: inline-block;
+  font-size: 1rem;
+  vertical-align: top;
+}
+
+.content_section_a {
+  background-color: yellow;
+  width: calc(40% - 2em);
+}
+
+.content_section_b {
+  background-color: violet;
+  width: calc(60% - 2em);
+}
+
+.page_footer {
+  padding: 1em;
+  background-color: yellowgreen;
+}
+
+.global_manu_link {
+  background-color: white;
+  margin-bottom: 5px;
+}
