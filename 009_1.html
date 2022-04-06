@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //array 의 내장함수
+        let 과일 = ['사과', '수박', '복숭아', '딸기', '바나나'];
+        let 과일선물 = ['체리', '멜론'];
+
+        document.write(`과일 : ${과일} <br>`);
+        let 꺼낸과일 = 과일.pop() 
+        document.write(`과일.pop() : ${과일.pop()} <br>`);
+        document.write(`과일 : ${과일} <br>`);
+        document.write(`꺼낸과일 : ${꺼낸과일} <br>`);
+        document.write(`과일.push(꺼낸과일) : ${과일.push(꺼낸과일)} <br>`);
+        document.write(`과일 : ${과일} <br>`);
+
+        document.write(`<hr>`);
+
+        let 문자열 = 과일.toString()
+        document.write(`과일.toString()[1] : ${문자열[1]} <br>`);
+        document.write(`과일.join('*') : ${과일.join('*')} <br>`);
+        document.write(`과일.shift() : ${과일.shift()} <br>`);
+        document.write(`과일.unshift() : ${과일.unshift('현준')} <br>`);
+
+        document.write(`과일 : ${과일} <br>`);
+        document.write(`과일.splice(1, 1, '한라봉') : ${과일.splice(1, 1, '한라봉')} <br>`);
+        document.write(`과일.slice(0,2) : ${과일.slice(0,2)} <br>`);
+        document.write(`과일 : ${과일} <br>`);
+        document.write(`과일.concat(과일선물) : ${과일.concat(과일선물)} <br>`);
+        document.write(`과일 : ${과일} <br>`);
+        document.write(`과일.sort(과일선물) : ${과일.sort()} <br>`);
+        document.write(`과일 : ${과일} <br>`);
+        document.write(`과일.reverse(과일선물) : ${과일.reverse()} <br>`);
+        document.write(`과일 : ${과일} <br>`);
+
+        document.write(`['1','11','22','2'].sort() : ${['1','11','22','2'].sort()} <br>`);
+
+
+        document.write(`과일.sort(과일선물).length : ${['1','11','22','2'].sort().length} <br>`);
+
+
+
+
+ 
+       
+    </script>
+</body>
+
+</html>

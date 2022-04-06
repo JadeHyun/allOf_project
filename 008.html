@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sum(x,y) {
+            return x + y;
+        }
+        //object 
+        let person = {
+            name : '양현준',
+            age : 10,
+            height : 30,
+            weight : 40,
+            이력 : {'첫번째직장' : '하나', '두번째 직장' : '둘'},
+            기능 : sum
+        }
+        person.소속 = '바울랩';
+
+        document.write(`제 이름은 ${person.name} 입니다. 제 나이는 ${person.age} 입니다. <br>`)
+        document.write(`제 키는 ${person.height} 입니다. 제 몸무게는 ${person.weight} 입니다. <br>`)
+        document.write(`제 소속은 ${person.소속} 입니다. <br>`)
+        document.write(`제 이력은 ${person.이력.첫번째직장} 입니다. <br>`)
+        document.write(`제 기능은 ${person.기능(10,30)} 입니다. <br>`)
+
+
+    </script>
+</body>
+</html>
