@@ -1,0 +1,81 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    padding:30px 20px;
+    width: 600px;
+    height: 150px;
+    margin-top: 100px;
+    border: gray 1px solid;
+    border-radius: 10px;
+}
+
+.txt {
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+
+.btn {
+    background-color: blueviolet;
+    border-radius: 10px;
+    border: none;
+    height: 60px;
+    cursor: pointer;
+}
+
+.btn img {
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.btn span {
+    display: inline-block;
+    font-size: 25px;
+    color: white;
+}
+
+.nav {
+    margin-top: 30px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: gray;
+}
+
+.id {
+    display: inline-block;
+}
+
+.id img {
+    width: 20px;
+}
+
+.pw{
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.pw::before {
+    content: '';
+    display: inline-block;
+    background-color: gray;
+    height: 15px;
+    width: 2px;
+    margin-right: 20px;
+}
+
+.signUp {
+    float: right;
+}
+
+.signUp img {
+    width: 20px;
+}
