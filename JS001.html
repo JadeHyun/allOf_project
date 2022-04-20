@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 시작</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+        기본문법 
+        => 대소문자를 구분한다. 
+        => 유니코드를 기반해서 코드로 작성할 수 있다. 
+        => 명령어는 문장(statement)로 부른다.
+        => 한 문장은 세미콜론으로 끝맺음
+        => 스페이스, 탭은 공백이라고 부른다.
+        
+        defar 라는 속성이 새로 생겼다.
+        => 원래는 HTML 코드를 먼저 작성했을 경우 HTML코드를 먼저 랜더링 하고 javascript 를 해석하는데,
+        defar 라는 걸 쓰면 HTML 과 javascript 를 같이 해석하게 되고, 속도는 크게 느려지지는 않는다고 한다. 
+
+        -----------------------------------------------------------------------------------------------------------------------
+        변수(variables)
+        ex. var num; & num = 1; & 
+        
+        - 쉼표로 구분하면 여러 변수를 선언할 수 있다. 
+        => var num = 1, num2 = 2
+        
+        - 변수의 값은 다른 변수에 할당할 수도 있다. 
+        => var num = 1, num2 = 2
+        num = num2
+        console.log(num) ==> 2
+
+        ** 예약어는 사용할 수 없다. 
+
+        자료형(Type)
+        - 원시 자료형 : 숫자, 문자열, Boolean, null, undefined
+            해당하는 리터럴 표현이 있다.
+            변수 안에 다른 변수를 할당하면 값이 복사가 되는 것이다. 
+
+            -- 숫자 
+                => 정수등을 표현하는 원시타입. 10진수가 기본이다.
+                => NaN(not is number) 도 숫자형이다. NaN은 isNaN() 함수를 통해 확인한다.
+                => 사칙연산, 나머지연산, 증감연산, 단항연산자(부호를 바꿔줌), 비교연산자 등을 사용한다.
+            
+            -- 문자
+                => 0개 이상 연속된 문자집합을 표현하는 원시 타입이다.
+                => 연산자로 특정 인텍스의 글자만 가져올 수 있음.      ex. 'hello world'[1] = e
+                => + 연산자로 문자열 두개 또는 문자열과 다른 자료형을 연결 할 수 있다.          ex. '숫자' + 7 = '숫자7'
+                => 활용도 많은 메소드들
+                    ==> parseInt(), parseFloat(), charAt(), replace(), indexOf(), search(), slice(), split()
+
+        - 객체 자료형 : 
+        */
+    </script>
+    <!-- <script defer></script> -->
+    <script>
+        // 연습 & 실습
+        var num = 1;
+        num2 =2, num3 = 3;
+        console.log(num2,num3)
+        num = num2;
+        num = 10;
+        console.log(num+'')
+        console.log(typeof(NaN))
+
+        var val = new Number(5); // => 이 키워드가 javascript 가 원래 표현해야 하는 식인데, 리터럴 표현을 쓰면은 var val = 5 이렇게 쓸 수 있는 것이다.
+        var str = new String('hellow')
+        console.log(str)
+        console.log(isNaN(1))
+    </script>
+</body>
+</html>
